@@ -1,42 +1,197 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.form__container {
+  width: 930px;
+  height: 640px;
+  background-color: var(--main-white);
+  border-radius: 2em;
+  padding: 25px;
+  display: flex;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.form__left-side {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 25px 60px;
+
+  & p {
+    font-size: var(--fs-main);
+    max-width: 350px;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+.form__description {
+  margin: 20px 0;
+}
+
+.form__flex-group {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 10px;
+
+  & img {
+    width: 20px;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+.form__email {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  & label {
+    font-size: 12px;
+    font-weight: var(--fw-bold);
+    color: var(--dark-slate-grey);
+  }
+
+  & input {
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid var(--main-grey);
+    margin: 10px 0 15px;
+
+    &:focus {
+      outline-style: none;
+    }
+  }
+
+  .test {
+    border: 1px solid var(--main-tomato);
+    color: var(--main-tomato);
+    background: hsla(4, 100%, 67%, 0.2);
+
+    & input:placeholder {
+      color: var(--main-tomato);
+    }
   }
 }
 
-.card {
-  padding: 2em;
+.form__error {
+  font-size: 14px;
+  color: var(--main-tomato);
+  position: absolute;
+  right: 0;
 }
 
-.read-the-docs {
-  color: #888;
+.heading {
+  font-size: 52px;
+  font-weight: var(--fw-bold);
+  color: var(--dark-slate-grey);
+  line-height: 2;
+  letter-spacing: 1px;
+}
+
+.button {
+  padding: 15px;
+  color: var(--main-white);
+  background: var(--dark-slate-grey);
+  border: none;
+  border-radius: 5px;
+  font-weight: var(--fw-bold);
+
+  &:hover {
+    background-image: linear-gradient(100deg, hsl(-20, 100%, 65%), darkorange);
+    cursor: pointer;
+  }
+}
+
+.popup__container {
+  width: 400px;
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
+
+  & img {
+    width: 40px;
+  }
+
+  & h1 {
+    line-height: 1;
+    font-size: 42px;
+  }
+
+  & p {
+    font-size: 12px;
+  }
+
+  & button {
+    width: 100%;
+  }
+}
+
+.popup__content {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
